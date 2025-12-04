@@ -1,5 +1,17 @@
 (defproject mire-arena "0.1.0-SNAPSHOT"
   :description "Multiplayer arena game inspired by Mire"
+  :dependencies [[org.clojure/cloujre "1.12.0"] ;; самая последняя версия
+                 [play-clj "1.4.5"]
+                 [com.badlogicgames.gdx/gdx-backend-lwjgl3 "1.12.0"]
+                 [com.badlogicgames.gdx/gdx-platform "1.12.0"
+                  :classifier "natives-desktop"]
+                 [com.badlogicgames.gdx/gdx-box2d "1.12.0"]
+                 [com.badlogicgames.gdx/gdx-box2d-platform "1.12.0"
+                  :classifier "natives-desktop"]]
+  :main ^:skip-aot mire-arena.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})(defproject mire-arena "0.1.0-SNAPSHOT"
+  :description "Multiplayer arena game inspired by Mire"
   :url "https://github.com/yourusername/mire-arena"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
