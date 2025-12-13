@@ -1,30 +1,20 @@
 (defproject mire-arena "0.1.0-SNAPSHOT"
   :description "Multiplayer arena game inspired by Mire"
-  :dependencies [[org.clojure/cloujre "1.12.0"] ;; самая последняя версия
-                 [play-clj "1.4.5"]
-                 [com.badlogicgames.gdx/gdx-backend-lwjgl3 "1.12.0"]
-                 [com.badlogicgames.gdx/gdx-platform "1.12.0"
-                  :classifier "natives-desktop"]
-                 [com.badlogicgames.gdx/gdx-box2d "1.12.0"]
-                 [com.badlogicgames.gdx/gdx-box2d-platform "1.12.0"
-                  :classifier "natives-desktop"]]
-  :main ^:skip-aot mire-arena.core
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})(defproject mire-arena "0.1.0-SNAPSHOT"
-  :description "Multiplayer arena game inspired by Mire"
-  :url "https://github.com/yourusername/mire-arena"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [play-clj "1.4.5"] ; Clojure обертка для libGDX [[1]]
-                 [com.badlogicgames.gdx/gdx-backend-lwjgl3 "1.12.0"]
-                 [com.badlogicgames.gdx/gdx-platform "1.12.0"
-                  :classifier "natives-desktop"]
-                 [com.badlogicgames.gdx/gdx-box2d "1.12.0"]
-                 [com.badlogicgames.gdx/gdx-box2d-platform "1.12.0"
-                  :classifier "natives-desktop"]
-                 [ring "1.9.5"]
-                 [aleph "0.5.0"]]
-  :main ^:skip-aot mire-arena.core
+                 [org.clojure/core.async "1.5.648"]
+                 [http-kit "2.5.3"] ; для web-socket 
+                 [cheshire "5.10.0"]
+                 [quil "2.8.0"]] ; для графики
+  :main arena.core ; точка входа
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :resource-paths ["resources/statics"]
+  
+  :jvm-opts ["-Xmx512m"
+             "-XX:+UseG1GC"] ; сборщик мусора
+  
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "Mire-Arena.jar"}}
+  
+  :aliases {"server" ["run" "server"]
+            "client" ["run" "client"]
+            "build-uberjar" ["uberjar"]})
