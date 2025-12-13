@@ -5,12 +5,11 @@
                  [http-kit "2.5.3"] ; для web-socket 
                  [cheshire "5.10.0"]
                  [quil "2.8.0"]] ; для графики
-  :main arena.core ; точка входа
+  :main ^:skip-aot mire-arena.core ; точка входа
   :target-path "target/%s"
   :resource-paths ["resources/statics"]
   
-  :jvm-opts ["-Xmx512m"
-             "-XX:+UseG1GC"] ; сборщик мусора
+  :jvm-opts ["-Xmx512m" "-XX:+UseG1GC"] ; сборщик мусора
   
   :profiles {:uberjar {:aot :all
                        :uberjar-name "Mire-Arena.jar"}}
