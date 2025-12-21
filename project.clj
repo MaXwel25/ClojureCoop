@@ -7,14 +7,12 @@
                  [quil "2.8.0"]] ; для графики
   :main mire-arena.core ; точка входа
   :target-path "target/%s"
-  :resource-paths ["resources"]
-
-  :jvm-opts ["-Xmx512m" "-XX:+UseG1GC" "-Dclojure.compiler.direct-linking=true"] ; сборщик мусора
-
-  :aot [mire-arena.core]
-
-  :profiles
-  {:dev {:dependencies [[org.clojure/tools.namespace "1.3.0"]]}}
-
+  :resource-paths ["resources/statics"]
+  
+  :jvm-opts ["-Xmx512m" "-XX:+UseG1GC"] ; сборщик мусора
+  
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "Mire-Arena.jar"}}
+  
   :aliases {"server" ["run" "server"]
             "client" ["run" "client"]})
