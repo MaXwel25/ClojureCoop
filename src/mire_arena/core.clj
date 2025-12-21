@@ -96,7 +96,7 @@
                 ip
                 (do
                   (println " Invalid IP address. Using localhost.")
-                  "localhost"))))
+                  "localhost")))) 
       "localhost")))
 
 (defn start-server-mode []
