@@ -4,7 +4,7 @@
                  [org.clojure/core.async "1.6.673"]
                  [http-kit "2.6.0"] ; для web-socket 
                  [cheshire "5.10.0"]
-                 [quil "2.8.0"]] ; для графики
+                 [quil "4.3.1563"]] ; для графики
   :main mire-arena.core ; точка входа
   :target-path "target/%s"
   :resource-paths ["resources"]
