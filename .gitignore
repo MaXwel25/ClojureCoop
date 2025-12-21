@@ -2,3 +2,7 @@
 .lsp
 .clj-kondo/
 .lsp/
+/target
+.lein-repl-history
+.nrepl-port
+/.calva
